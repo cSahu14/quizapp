@@ -6,7 +6,6 @@ const index = () => {
   return (
     <div>
         <Navbar />
-        <h3>Register</h3>
         <Register/>
     </div>
   )

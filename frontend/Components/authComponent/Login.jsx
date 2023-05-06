@@ -42,6 +42,7 @@ const Login = () => {
   return (
     <div className={styles.login}>
       <div className={styles.lContainer}>
+      <h3>Login</h3>
         <input
           type="email"
           placeholder="email"

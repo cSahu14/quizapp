@@ -9,7 +9,7 @@
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
 
-  --primary-color : #22254b;
+  --primary-color : #5e3370;
   --secondary-color : #373b69;
 
   --primary-glow: conic-gradient(
@@ -90,7 +90,8 @@ body {
 
 body {
   color: black;
-  background: #fff;
+  background: #b8c6db;
+  background-image: linear-gradient(315deg, #b8c6db 0%, #f5f7fa 100%);
   font-family: sans-serif;
 }
 

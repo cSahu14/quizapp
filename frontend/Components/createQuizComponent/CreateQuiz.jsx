@@ -192,7 +192,9 @@ const CreateQuiz = () => {
 
   return (
     <div className={styles.login}>
-      <h3>After 10 Questions, User Could Publish the Quiz.</h3>
+      <div className={styles.questionDesc}>
+        <h3>After 10 Questions, User Could Publish the Quiz.</h3>
+      </div>
       <div className={styles.title}>
         <div className={styles.inputSpan}>Title</div>
         <input
@@ -205,7 +207,7 @@ const CreateQuiz = () => {
       </div>
       {questionArray.length !== 10 ? (
         <>
-          <div>Question {questionNumber}</div>
+          <div className={styles.queTitle}>Question {questionNumber}</div>
           <div className={styles.lContainer}>
             <div>
               <div className={styles.inputSpan}>Qustion</div>

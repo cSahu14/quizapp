@@ -1,12 +1,11 @@
-import React from 'react'
-import Profile from '../../Components/profileComponent/Profile'
+import React from "react";
+import Profile from "../../Components/profileComponent/Profile";
+import { useCookies } from "react-cookie";
 
 const index = () => {
-  return (
-    <div>
-        <Profile/>
-    </div>
-  )
-}
+  const [cookieData, setCookieData, removeCookie] = useCookies();
 
-export default index
+  return <div>{cookieData?.userId && <Profile />}</div>;
+};
+
+export default index;

@@ -11,7 +11,7 @@ const QuizCard = ({quiz}) => {
         router.push(`/quiz/${quiz?._id}`)
     }
   return (
-    <div key={quiz?._id} className={style.card} onClick={handleClick}>
+    <div key={quiz?._id} className={style.cardContainer} onClick={handleClick}>
       <h4 className={style.title}>Title - {quiz?.title}</h4>
     </div>
   );

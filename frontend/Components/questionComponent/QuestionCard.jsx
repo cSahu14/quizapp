@@ -1,24 +1,30 @@
-import React from "react";
+import React, { useState } from "react";
 import style from "../../styles/Quiz.module.css";
 
-const QuestionCard = ({question}) => {
-    
+const QuestionCard = ({ question, id }) => {
   return (
     <div className={style.QuestionCard}>
-      <div>
-        <h4>{question?.question}</h4>
-        {question?.options.map((option) => (
-          <div>
-            {question?.answers?.length === 1 ? (
-              <input type="radio" name={question?.question} value={option} />
-            ) : (
-              <input type="checkbox" name={question?.question} value={option} />
-            )}
+      <div className={style.questionHeader}>
+        <h2 className={style.question}>{question?.question}</h2>
+        <ul>
+          {question?.options.map((option) => (
+            <li>
+              {question?.answers?.length === 1 ? (
+                <input type="radio" name={question?.question} value={option} />
+              ) : (
+                <input
+                  type="checkbox"
+                  name={question?.question}
+                  value={option}
+                />
+              )}
 
-            <span>{option}</span>
-          </div>
-        ))}
+              <label for="a">{option}</label>
+            </li>
+          ))}
+        </ul>
       </div>
+      <button className={style.button}>Next</button>
     </div>
   );
 };

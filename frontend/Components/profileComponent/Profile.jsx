@@ -38,7 +38,7 @@ const Profile = () => {
         <p>...Loading</p>
       ) : (
         <section className={style.quizCard}>
-          {quizData?.length === 0 ? <h2>Please Create Your Quiz</h2> : <h2>All Quizes</h2>}
+          {quizData?.length === 0 ? <h2>Please Create Your Quiz</h2> : <h2>All Quizes by user</h2>}
           {quizData?.map((quiz) => (
             <ProfileQuiz quiz={quiz} />
           ))}

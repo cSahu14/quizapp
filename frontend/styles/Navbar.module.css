@@ -23,5 +23,6 @@
     border: none;
     padding: 5px 10px;
     cursor: pointer;
-    color: #003580;
+    color: #fff;
+    border-radius: 5px;
 }

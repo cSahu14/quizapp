@@ -1,5 +1,5 @@
 .login {
-    /* height: 100vh; */
+    height: 100vh;
     display: flex;
     align-items: center;
     flex-direction: column; 
@@ -17,6 +17,14 @@
     /* margin: auto; */
   }
 
+  .questionDesc {
+    margin-bottom: 3rem;
+  }
+
+  .queTitle {
+    margin: 1rem 0;
+  }
+
   .lTitle {
     width: 300px;
   }
@@ -28,7 +36,7 @@
   }
 
   .lQuestion {
-    width: 500px;
+    width: 930px;
   }
   
   .lButton {
@@ -39,9 +47,31 @@
     font-weight: bold;
     cursor: pointer;
     border-radius: 5px;
+    margin-top: 1rem;
   }
   
   .lButton:disabled{
     background-color: #0071c28c;
     cursor: not-allowed;
+  }
+
+  @media screen and (max-width: 720px) {
+    .lQuestion {
+      width: 300px;
+    }
+
+    .login {
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      flex-direction: column; 
+      justify-content: center;
+    }
+    .lContainer {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
   }

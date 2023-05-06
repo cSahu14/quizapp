@@ -50,6 +50,7 @@ const Register = () => {
   return (
     <div className={styles.login}>
       <div className={styles.lContainer}>
+      <h3>Register</h3>
         <input
           type="text"
           placeholder="name"
