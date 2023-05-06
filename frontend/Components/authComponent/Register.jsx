@@ -23,7 +23,7 @@ const Register = () => {
   const handleClick = async (e) => {
     e.preventDefault();
     await axios
-      .post("http://localhost:5000/api/users", credentials)
+      .post("https://quiz-app-aif1.onrender.com/api/users", credentials)
       .then((res) => {
         setCookieData("userId" , res?.data?._id)
         setCookieData("user_token", res?.data?.token)

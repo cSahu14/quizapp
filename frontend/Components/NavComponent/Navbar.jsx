@@ -21,7 +21,7 @@ const Navbar = () => {
     if(cookieData?.userId){
         const AuthStr = 'Bearer '.concat(cookieData?.user_token); 
 
-      await axios.get(`http://localhost:5000/api/users/me`,  { headers: { Authorization: AuthStr } })
+      await axios.get(`https://quiz-app-aif1.onrender.com/api/users/me`,  { headers: { Authorization: AuthStr } })
             .then((res) => {
               setUserData(res?.data)
             })

@@ -24,7 +24,7 @@ const Login = () => {
     e.preventDefault();
     const AuthStr = 'Bearer '.concat(cookieData?.user_token); 
     await axios
-      .post("http://localhost:5000/api/users/login", credentials, { headers: { Authorization: AuthStr } })
+      .post("https://quiz-app-aif1.onrender.com/api/users/login", credentials, { headers: { Authorization: AuthStr } })
       .then((res) => {
         setCookieData("userId" , res?.data?._id)
         setCookieData("user_token", res?.data?.token)

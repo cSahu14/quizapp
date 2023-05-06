@@ -123,27 +123,27 @@ const quizOptions = () => {
         questions : questionArray
     }
     console.log("data", data)
-    // await axios
-    //   .post("http://localhost:5000/api/quizs", data, { headers: { Authorization: AuthStr } })
-    //   .then((res) => {
-    //     console.log(res);
+    await axios
+      .post("https://quiz-app-aif1.onrender.com/api/quizs", data, { headers: { Authorization: AuthStr } })
+      .then((res) => {
+        console.log(res);
 
-    //     setQuestion("")
-    //     setOptionOne("")
-    //     setOptionTwo("")
-    //     setOptionThree("")
-    //     setOptionFour("")
-    //     setOptionFive("")
+        setQuestion("")
+        setOptionOne("")
+        setOptionTwo("")
+        setOptionThree("")
+        setOptionFour("")
+        setOptionFive("")
     
-    //     setAnswerOne("")
-    //     setAnswerTwo("")
-    //     setAnswerThree("")
-    //     setAnswerFour("")
-    //     setAnswerFive("")
-    //   })
-    //   .catch((err) => {
-    //     console.log(err);
-    //   });
+        setAnswerOne("")
+        setAnswerTwo("")
+        setAnswerThree("")
+        setAnswerFour("")
+        setAnswerFive("")
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   };
 
   const handleNext = () => {

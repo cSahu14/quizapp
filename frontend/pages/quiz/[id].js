@@ -14,7 +14,7 @@ const Quiz = () => {
   useEffect(() => {
     if (quizId) {
       axios
-        .get(`http://localhost:5000/api/quizs/${quizId}`)
+        .get(`https://quiz-app-aif1.onrender.com/api/quizs/${quizId}`)
         .then((res) => {
           setQuizData(res.data);
         })

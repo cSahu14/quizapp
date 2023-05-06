@@ -7,7 +7,7 @@ import style from "../../styles/Home.module.css"
 const HomePage = () => {
     const [quizes, setQuizes] = useState([]);
     useEffect(() => {
-        axios.get(`http://localhost:5000/api/quizs`).then((res) => {
+        axios.get(`https://quiz-app-aif1.onrender.com/api/quizs`).then((res) => {
             setQuizes(res?.data)
         }).catch((err) => {
             console.log(err)
