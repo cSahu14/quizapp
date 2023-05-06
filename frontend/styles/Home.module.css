@@ -1,0 +1,18 @@
+.homeContainer {
+  width: 100%;
+  max-width: 1024px;
+  margin: auto;
+  /* color: white; */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.quizCard {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+}
