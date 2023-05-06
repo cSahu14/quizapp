@@ -24,7 +24,10 @@ const HomePage = () => {
   return (
         <main className={style.homeContainer}>
             {loading ? <p>...Loading</p> : <section className={style.quizCard}>
-                <h2 style={{"color" : "black"}}>All Published Quizes</h2>
+            {quizes?.length > 1 ?
+                <h2 style={{"color" : "black"}}>All Published Quizes</h2> : 
+                <h2 style={{"color" : "black"}}>Please Create Quizes</h2>
+}
                 { quizes?.map(quiz => (
                     <QuizCard quiz={quiz} />
                 ))}
