@@ -24,7 +24,6 @@ const Quiz = () => {
     }
   }, [quizId]);
 
-  console.log(quizData);
 
   const handleChange = (e) => {
     console.log("e", e.target.value)
@@ -38,7 +37,6 @@ const Quiz = () => {
       <section className="">
         {quizData?.questions?.map((question, id) => (
           <div className={style.QuestionCard}>
-            {console.log("id", id)}
             <div className={style.cardInner}>
                 <div>No. {id + 1}</div>
                 <div>

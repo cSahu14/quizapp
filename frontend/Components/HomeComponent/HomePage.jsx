@@ -6,21 +6,29 @@ import style from "../../styles/Home.module.css"
 
 const HomePage = () => {
     const [quizes, setQuizes] = useState([]);
+    const [loading, setLoading] = useState(false);
+
     useEffect(() => {
-        axios.get(`https://quiz-app-aif1.onrender.com/api/quizs`).then((res) => {
+       getQuizes()
+    }, [])
+
+    const getQuizes = async () => {
+        setLoading(true)
+       await axios.get(`https://quiz-app-aif1.onrender.com/api/quizs`).then((res) => {
             setQuizes(res?.data)
+            setLoading(false)
         }).catch((err) => {
             console.log(err)
         })
-    }, [])
-    console.log("quizes", quizes)
+    }
   return (
         <main className={style.homeContainer}>
-            <section className={style.quizCard}>
+            {loading ? <p>...Loading</p> : <section className={style.quizCard}>
+                <h2 style={{"color" : "black"}}>All Published Quizes</h2>
                 { quizes?.map(quiz => (
                     <QuizCard quiz={quiz} />
                 ))}
-            </section>
+            </section>}
         </main>
   )
 }

@@ -49,10 +49,23 @@ const getUserQuizs = asyncHandler(async (req, res) => {
   }
 })
 
+const deleteQuiz = asyncHandler(async(req, res) => {
+  const quiz = await Quiz.findById(req.params.id);
+  if(!quiz){
+    res.status(400)
+    throw new Error('Invalid Id')
+  }else {
+    await quiz.deleteOne()
+
+    res.status(200).json({ id: req.params.id })
+  }
+})
+
 
 module.exports = {
 getQuizs,
 setQuizs,
 getQuiz,
-getUserQuizs
+getUserQuizs,
+deleteQuiz
 }

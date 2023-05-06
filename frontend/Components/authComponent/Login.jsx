@@ -9,6 +9,7 @@ const Login = () => {
     const [cookieData, setCookieData] = useCookies()
     const router = useRouter()
     const [error, setError] = useState("")
+    const [loading, setLoading] = useState(false)
   const [credentials, setCredentials] = useState({
     email: undefined,
     password: undefined,
@@ -18,25 +19,25 @@ const Login = () => {
     setCredentials((prev) => ({ ...prev, [e.target.id]: e.target.value }));
   };
 
-  console.log(credentials);
-
   const handleClick = async (e) => {
+    setError("")
     e.preventDefault();
     const AuthStr = 'Bearer '.concat(cookieData?.user_token); 
+    setLoading(true)
     await axios
       .post("https://quiz-app-aif1.onrender.com/api/users/login", credentials, { headers: { Authorization: AuthStr } })
       .then((res) => {
+        setLoading(false)
         setCookieData("userId" , res?.data?._id)
         setCookieData("user_token", res?.data?.token)
         router.push("/")
     })
     .catch((err) => {
+      setLoading(false)
         setError(err?.response?.data?.message)
         console.log(err);
       });
   };
-
-  console.log("error", error)
 
   return (
     <div className={styles.login}>
@@ -55,9 +56,9 @@ const Login = () => {
           onChange={handleChange}
           className={styles.lInput}
         />
-        <button onClick={handleClick} className={styles.lButton}>
+        {loading ? <p>...Loading</p>:<button onClick={handleClick} className={styles.lButton}>
           Login
-        </button>
+        </button>}
         <div>{error}</div>
       </div>
     </div>

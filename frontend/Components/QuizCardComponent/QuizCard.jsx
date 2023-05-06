@@ -12,7 +12,7 @@ const QuizCard = ({quiz}) => {
     }
   return (
     <div key={quiz?._id} className={style.card} onClick={handleClick}>
-      <h4>{quiz?.title}</h4>
+      <h4 className={style.title}>Title - {quiz?.title}</h4>
     </div>
   );
 };

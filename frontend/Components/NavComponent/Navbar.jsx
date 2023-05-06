@@ -48,7 +48,6 @@ const Navbar = () => {
     router.push("/profile")
   }
 
-console.log(userData)
   return (
     <div className={Styles.navbar}>
       <div className={Styles.navContainer}>

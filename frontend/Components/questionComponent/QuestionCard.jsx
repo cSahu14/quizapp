@@ -3,7 +3,6 @@ import style from "../../styles/Quiz.module.css";
 
 const QuestionCard = ({question}) => {
     
-  console.log(question);
   return (
     <div className={style.QuestionCard}>
       <div>

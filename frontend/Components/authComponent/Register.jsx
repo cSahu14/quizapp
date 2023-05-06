@@ -8,6 +8,8 @@ import { useRouter } from "next/router";
 const Register = () => {
     const [cookieData, setCookieData] = useCookies()
     const router = useRouter()
+    const [loading, setLoading] = useState(false)
+    const [error, setError] = useState("")
   const [credentials, setCredentials] = useState({
     name: undefined,
     email: undefined,
@@ -18,21 +20,31 @@ const Register = () => {
     setCredentials((prev) => ({ ...prev, [e.target.id]: e.target.value }));
   };
 
-  console.log(credentials);
 
   const handleClick = async (e) => {
-    e.preventDefault();
-    await axios
-      .post("https://quiz-app-aif1.onrender.com/api/users", credentials)
-      .then((res) => {
-        setCookieData("userId" , res?.data?._id)
-        setCookieData("user_token", res?.data?.token)
-        router.push("/")
-        console.log(res);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    var validRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+    if(credentials?.email?.match(validRegex)){
+      
+      setError("")
+      setLoading(true)
+      e.preventDefault();
+      await axios
+        .post("https://quiz-app-aif1.onrender.com/api/users", credentials)
+        .then((res) => {
+          setLoading(false)
+          setCookieData("userId" , res?.data?._id)
+          setCookieData("user_token", res?.data?.token)
+          router.push("/")
+        })
+        .catch((err) => {
+          setLoading(false)
+          setError(err?.response?.data?.message)
+          console.log(err);
+        });
+    }else {
+      setError("Invalid Email.")
+    }
+
   };
 
   return (
@@ -59,9 +71,10 @@ const Register = () => {
           onChange={handleChange}
           className={styles.lInput}
         />
-        <button onClick={handleClick} className={styles.lButton}>
+        {loading ? <p>...Loading</p> : <button onClick={handleClick} className={styles.lButton}>
           Register
-        </button>
+        </button>}
+        {error && error}
       </div>
     </div>
   );
