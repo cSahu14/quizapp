@@ -23,6 +23,7 @@ const HomePage = () => {
     }
   return (
         <main className={style.homeContainer}>
+            {/* Home page for all quizes */}
             {loading ? <p>...Loading</p> : <section className={style.quizCard}>
             {quizes?.length > 1 ?
                 <h2 style={{"color" : "black"}}>All Published Quizes</h2> : 
