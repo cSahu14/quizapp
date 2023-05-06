@@ -44,6 +44,10 @@ const Navbar = () => {
     router.push("/createQuiz")
   }
 
+  const handleProfile = () => {
+    router.push("/profile")
+  }
+
 console.log(userData)
   return (
     <div className={Styles.navbar}>
@@ -64,7 +68,7 @@ console.log(userData)
             <button className={Styles.navButton} onClick={handleCreate}>
               Create Quiz
             </button>
-            <span style={{"marginLeft" : "10px"}}>{userData?.name}</span>
+            <span style={{"marginLeft" : "10px", cursor : "pointer"}} onClick={handleProfile}>{userData?.name}</span>
             <button className={Styles.navButton} onClick={handleLogout}>
               Log out
             </button>

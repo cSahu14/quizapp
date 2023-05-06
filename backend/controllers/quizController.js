@@ -38,9 +38,21 @@ const setQuizs = asyncHandler(async (req, res) => {
   res.status(200).json(quiz)
 })
 
+const getUserQuizs = asyncHandler(async (req, res) => {
+  const user = req.user
+  if(!user) {
+    res.status(400)
+    throw new Error('Please Login or Register')
+  }else {
+    const quizes = await Quiz.find({user})
+    res.status(200).json(quizes)
+  }
+})
+
 
 module.exports = {
 getQuizs,
 setQuizs,
-getQuiz
+getQuiz,
+getUserQuizs
 }
